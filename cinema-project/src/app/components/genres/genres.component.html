@@ -1,0 +1,9 @@
+<div class="genres">
+  <div class="container">
+    <h2>Genres</h2>
+    <ul>
+      <li *ngFor="let genre of genres"><a (click)="changeMovie(genre)">{{genre}}</a></li>
+    </ul>
+  </div>
+  <app-genre-detail [movies]="movies"></app-genre-detail>
+</div>

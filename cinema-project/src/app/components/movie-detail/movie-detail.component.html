@@ -1,0 +1,25 @@
+<div class="movie-detail" *ngIf="this.movie$ | async as movie">
+  <div class="container">
+      <div class="container-slider">
+        <img [src]="movie.img" class="d-block w-100" alt="...">
+      </div>
+      <div class="movie">
+          <div class="movie-container">
+              <h2 class="movie__title">{{ movie.name }}</h2>
+              <p class="movie__description">{{ movie.description }}</p>
+              <p class="movie__length">Time: {{ movie.length }}</p>
+              <p class="movie__rate">Rate: <span>{{ movie.rate }}</span></p>
+              <div class="genres">
+                <ul class="list">
+                  <li class="list__item" *ngFor="let genre of movie.genres">{{genre}}</li>
+                </ul>
+              </div>
+              <div class="cart-button">
+                <button class="btn btn-primary"
+                (click)="goBack()">Back</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <app-genre-detail [movies]="moviesGenre"></app-genre-detail>
+</div>
